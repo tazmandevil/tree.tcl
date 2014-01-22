@@ -26,7 +26,7 @@ chmod +x $HOME/bin/tree.tcl
 
 echo "Installation complete!"
 echo "To run tree.tcl, in terminal type tree.tcl, or make an icon/menu item/short cut to /home/$name/bin/tree.tcl"
-echo "Don't forget to edit preferences before trying to post for the first time! "
+echo "Oh, and do NOT forget to edit preferences before trying to post for the first time! "
 echo "Enjoy!"
 
 exit
