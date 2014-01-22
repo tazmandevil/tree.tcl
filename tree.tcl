@@ -805,7 +805,7 @@ pack .link.s -in .link -side left
 
 frame .link.btns
 
-grid [tk::button .link.btns.in -text "Insert" -command {.txt.txt insert insert "#$ltxt\n"}]\
+grid [tk::button .link.btns.in -text "Insert" -command {.txt.txt insert insert "# $ltxt\n"}]\
 [tk::button .link.btns.out -text "Done" -command {destroy .link}]
 
 pack .link.btns -in .link -side left
@@ -823,7 +823,7 @@ pack .link.s -in .link -side left
 
 frame .link.btns
 
-grid [tk::button .link.btns.in -text "Insert" -command {.txt.txt insert insert "##$ltxt\n"}]\
+grid [tk::button .link.btns.in -text "Insert" -command {.txt.txt insert insert "## $ltxt\n"}]\
 [tk::button .link.btns.out -text "Done" -command {destroy .link}]
 
 pack .link.btns -in .link -side left
@@ -841,7 +841,7 @@ pack .link.s -in .link -side left
 
 frame .link.btns
 
-grid [tk::button .link.btns.in -text "Insert" -command {.txt.txt insert insert "###$ltxt\n"}]\
+grid [tk::button .link.btns.in -text "Insert" -command {.txt.txt insert insert "### $ltxt\n"}]\
 [tk::button .link.btns.out -text "Done" -command {destroy .link}]
 
 pack .link.btns -in .link -side left
@@ -859,7 +859,7 @@ pack .link.s -in .link -side left
 
 frame .link.btns
 
-grid [tk::button .link.btns.in -text "Insert" -command {.txt.txt insert insert "####$ltxt\n"}]\
+grid [tk::button .link.btns.in -text "Insert" -command {.txt.txt insert insert "#### $ltxt\n"}]\
 [tk::button .link.btns.out -text "Done" -command {destroy .link}]
 
 pack .link.btns -in .link -side left
