@@ -726,7 +726,7 @@ pack .link.s -in .link -side left
 
 frame .link.btns
 
-grid [tk::button .link.btns.in -text "Insert link" -command {.txt.txt insert insert "\[$ltxt]\($inurl\)\[/url\]"}]\
+grid [tk::button .link.btns.in -text "Insert link" -command {.txt.txt insert insert "\[$ltxt]\($inurl\)"}]\
 [tk::button .link.btns.out -text "Done" -command {destroy .link}]
 
 pack .link.btns -in .link -side left
@@ -747,7 +747,7 @@ pack .link.s -in .link -side left
 
 frame .link.btns
 
-grid [tk::button .link.btns.in -text "Insert link" -command {.txt.txt insert insert "!\[$ltxt]\($inurl\)\[/url\]"}]\
+grid [tk::button .link.btns.in -text "Insert link" -command {.txt.txt insert insert "!\[$ltxt]\($inurl\)"}]\
 [tk::button .link.btns.out -text "Done" -command {destroy .link}]
 
 pack .link.btns -in .link -side left
