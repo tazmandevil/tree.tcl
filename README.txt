@@ -3,15 +3,14 @@ Tree.Tcl
 a tcl/tk Libertree posting client
 by Tazman Deville | http://tazd.info/libertree
 
-Version 0.2.1
+Version 0.1
 
 tree.tcl will post to your libertree forest.
 
 INSTALLATION
 For gnu/linux systems: Run the install.sh script.
-Everybody else, you'll have to figure it out.
-I only use gnu/linux.
-
+That will probably work on mac and bsd, too.
+I'll work on a windows installation later.
 
 Thanks for your support.
 
