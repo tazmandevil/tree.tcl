@@ -62,6 +62,7 @@ bind . <Control-q> {clear}
 bind . <F8> {prefs}
 bind . <F7> {browz}
 bind . <F5> {wordcount}
+bind . <Control-p> {tpost}
 
 tk_setPalette background $::wbg foreground $::wtx
 
@@ -91,6 +92,7 @@ menu .fluff.mb.f -tearoff 1
 .fluff.mb.f  add command -label "SaveAs" -command {file_saveas} -accelerator Ctrl-b
 .fluff.mb.f add command -label "Clear" -command {clear} -accelerator Ctrl+q
 .fluff.mb.f add separator
+.fluff.mb.f  add command -label "Post" -command {tpost} -accelerator Ctrl-p
 .fluff.mb.f  add command -label "Quit" -command {leave} -accelerator Escape
 
 
@@ -181,9 +183,11 @@ bind .txt.txt <FocusIn> {set foco .txt.txt}
 ###################
 frame .p
 
-grid [tk::button .p.post -text "GO" -command tpost]\
-[tk::button .p.q -text "Quit" -command {leave}]
+tk::button .p.post -text "GO" -command tpost
+tk::button .p.q -text "Quit" -command {leave}
 
+pack .p.q -in .p -side right
+pack .p.post -in .p -side right
 pack .p -in . -fill x
 
 
