@@ -873,6 +873,17 @@ set update [.txt.txt get 1.0 {end -1c}]
 	set orchard "$::tree/api/v1/posts/create?token=$::apitoken"
 	set myquery [::http::formatQuery "text" "$update" "source" "tazman\'s tree tickler"]
 	set token [::http::geturl $orchard -query $myquery]
+	if { $token == "::http::1" } { 
+		set response "tree planted!"
+		} else { 
+		set response "uh oh..."
+	}
+	toplevel .resp
+	wm title .resp "Response"
+	tk::message .resp.msg -width 250 -text "Tree says: $token\n$response"
+	tk::button .resp.ok -text "OK" -command {destroy .resp}
+	pack .resp.msg -in .resp
+	pack .resp.ok -in .resp
 	
 }
 
