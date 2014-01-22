@@ -870,7 +870,7 @@ grid [tk::button .pref.sv -text "Save Preferences" -command sapro]\
 proc tpost {} {
     
 set update [.txt.txt get 1.0 {end -1c}]
-	set orchard "$::tree/api/v1/posts/create?=$::apitoken"
+	set orchard "$::tree/api/v1/posts/create?token=$::apitoken"
 	set myquery [::http::formatQuery "text" "$update" "source" "tazman\'s tree tickler"]
 	set token [::http::geturl $orchard -query $myquery]
 	
