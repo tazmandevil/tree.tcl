@@ -76,7 +76,7 @@ frame .fluff -bd 1 -relief raised
 
 tk::menubutton .fluff.mb -text File -menu .fluff.mb.f 
 tk::menubutton .fluff.ed -text Edit -menu .fluff.ed.t 
-tk::menubutton .fluff.mu -text Markup -menu .fluff.mu.t
+tk::menubutton .fluff.mu -text Markdown -menu .fluff.mu.t
 tk::menubutton .fluff.view -text View -menu .fluff.view.t
 tk::label .fluff.font1 -text "Font size:" 
 ttk::combobox .fluff.size -width 4 -value [list 8 10 12 14 16 18 20 22] -state readonly
@@ -114,12 +114,19 @@ menu .fluff.ed.t -tearoff 1
 tk::button .fluff.help -text "Help" -command {help}
 tk::button .fluff.abt -text "About" -command {about}
 
-# markup menu
+# markdown menu
 # ##################
  menu .fluff.mu.t -tearoff 1
  .fluff.mu.t add command -label "Link" -command {inlink}
  .fluff.mu.t add command -label "Image" -command {inpic}
  .fluff.mu.t add command -label "Time Stamp" -command {indate}
+ .fluff.mu.t add command -label "Bold" -command {bold}
+ .fluff.mu.t add command -label "Italics" -command {ital}
+ .fluff.mu.t add command -label "Bold&Italic" -command {iboldic}
+ .fluff.mu.t add command -label "Heading 1" -command {head1}
+ .fluff.mu.t add command -label "Heading 2" -command {head2}
+ .fluff.mu.t add command -label "Heading 3" -command {head3}
+ .fluff.mu.t add command -label "Heading 4" -command {head4}
 
 
 
@@ -708,7 +715,7 @@ proc indate {} {
 	.txt.txt insert insert $date
 }
 
-# bbcode tags
+# markdown
 # to be inserted in the post.
 ###################################
 proc inlink {} {
@@ -727,6 +734,132 @@ pack .link.s -in .link -side left
 frame .link.btns
 
 grid [tk::button .link.btns.in -text "Insert link" -command {.txt.txt insert insert "\[$ltxt]\($inurl\)"}]\
+[tk::button .link.btns.out -text "Done" -command {destroy .link}]
+
+pack .link.btns -in .link -side left
+}
+
+proc ital {} {
+toplevel .link
+wm title .link "Italics "
+
+frame .link.s
+grid [tk::label .link.s.l2 -text "Text:"]\
+[tk::entry .link.s.e2 -width 40 -textvariable ltxt]
+
+pack .link.s -in .link -side left
+
+frame .link.btns
+
+grid [tk::button .link.btns.in -text "Insert " -command {.txt.txt insert insert "*$ltxt*"}]\
+[tk::button .link.btns.out -text "Done" -command {destroy .link}]
+
+pack .link.btns -in .link -side left
+}
+
+proc iboldic {} {
+toplevel .link
+wm title .link "Bold Italics"
+
+frame .link.s
+grid [tk::label .link.s.l2 -text "Text:"]\
+[tk::entry .link.s.e2 -width 40 -textvariable ltxt]
+
+pack .link.s -in .link -side left
+
+frame .link.btns
+
+grid [tk::button .link.btns.in -text "Insert" -command {.txt.txt insert insert "***$ltxt***"}]\
+[tk::button .link.btns.out -text "Done" -command {destroy .link}]
+
+pack .link.btns -in .link -side left
+}
+
+proc bold {} {
+toplevel .link
+wm title .link "Bold"
+
+frame .link.s
+grid [tk::label .link.s.l2 -text "Text:"]\
+[tk::entry .link.s.e2 -width 40 -textvariable ltxt]
+
+pack .link.s -in .link -side left
+
+frame .link.btns
+
+grid [tk::button .link.btns.in -text "Insert" -command {.txt.txt insert insert "**$ltxt**"}]\
+[tk::button .link.btns.out -text "Done" -command {destroy .link}]
+
+pack .link.btns -in .link -side left
+}
+
+proc head1 {} {
+toplevel .link
+wm title .link "Header 1"
+
+frame .link.s
+grid [tk::label .link.s.l2 -text "Text:"]\
+[tk::entry .link.s.e2 -width 40 -textvariable ltxt]
+
+pack .link.s -in .link -side left
+
+frame .link.btns
+
+grid [tk::button .link.btns.in -text "Insert" -command {.txt.txt insert insert "#$ltxt\n"}]\
+[tk::button .link.btns.out -text "Done" -command {destroy .link}]
+
+pack .link.btns -in .link -side left
+}
+
+proc head2 {} {
+toplevel .link
+wm title .link "Header 2"
+
+frame .link.s
+grid [tk::label .link.s.l2 -text "Text:"]\
+[tk::entry .link.s.e2 -width 40 -textvariable ltxt]
+
+pack .link.s -in .link -side left
+
+frame .link.btns
+
+grid [tk::button .link.btns.in -text "Insert" -command {.txt.txt insert insert "##$ltxt\n"}]\
+[tk::button .link.btns.out -text "Done" -command {destroy .link}]
+
+pack .link.btns -in .link -side left
+}
+
+proc head3 {} {
+toplevel .link
+wm title .link "Header 3"
+
+frame .link.s
+grid [tk::label .link.s.l2 -text "Text:"]\
+[tk::entry .link.s.e2 -width 40 -textvariable ltxt]
+
+pack .link.s -in .link -side left
+
+frame .link.btns
+
+grid [tk::button .link.btns.in -text "Insert" -command {.txt.txt insert insert "###$ltxt\n"}]\
+[tk::button .link.btns.out -text "Done" -command {destroy .link}]
+
+pack .link.btns -in .link -side left
+}
+
+proc head4 {} {
+toplevel .link
+wm title .link "Header 4"
+
+frame .link.s
+grid [tk::label .link.s.l2 -text "Text:"]\
+[tk::entry .link.s.e2 -width 40 -textvariable ltxt]
+
+pack .link.s -in .link -side left
+
+frame .link.btns
+
+grid [tk::button .link.btns.in -text "Insert" -command {.txt.txt insert insert "####$ltxt\n"}]\
 [tk::button .link.btns.out -text "Done" -command {destroy .link}]
 
 pack .link.btns -in .link -side left
