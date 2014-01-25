@@ -129,6 +129,7 @@ tk::button .fluff.abt -text "About" -command {about}
  .fluff.mu.t add command -label "Heading 2" -command {head2}
  .fluff.mu.t add command -label "Heading 3" -command {head3}
  .fluff.mu.t add command -label "Heading 4" -command {head4}
+ .fluff.mu.t add command -label "Block Quote" -command {quote}
 
 
 
@@ -792,6 +793,24 @@ pack .link.s -in .link -side left
 frame .link.btns
 
 grid [tk::button .link.btns.in -text "Insert" -command {.txt.txt insert insert "**$ltxt**"}]\
+[tk::button .link.btns.out -text "Done" -command {destroy .link}]
+
+pack .link.btns -in .link -side left
+}
+
+proc quote {} {
+toplevel .link
+wm title .link "Block Quote"
+
+frame .link.s
+grid [tk::label .link.s.l2 -text "Text:"]\
+[tk::entry .link.s.e2 -width 40 -textvariable ltxt]
+
+pack .link.s -in .link -side left
+
+frame .link.btns
+
+grid [tk::button .link.btns.in -text "Insert" -command {.txt.txt insert insert "> $ltxt\n"}]\
 [tk::button .link.btns.out -text "Done" -command {destroy .link}]
 
 pack .link.btns -in .link -side left
